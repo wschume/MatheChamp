@@ -15,13 +15,13 @@ class Application:
         self._width = width
         self._height = height
 
-  async def main(self, page: ft.Page):    
-    self._initialize_page(page)
+    async def main(self, page: ft.Page):
+        self._initialize_page(page)
 
-    game = Game(60, [QuestionBase(question_factory["any"])])
-    game_view = GameView(game)
+        game = Game(60, [QuestionBase(question_factory["any"])])
+        game_view = GameView(game)
 
-    await self.page.add_async(game_view)
+        await self.page.add_async(game_view)
 
     def _initialize_page(self, page: ft.Page):
         self.page = page
@@ -32,11 +32,12 @@ class Application:
 
 
 def main():
-  logging.basicConfig(level=logging.DEBUG)
-  logging.getLogger().setLevel(logging.DEBUG)
-  application = Application("MatheChamp")
+    logging.basicConfig(level=logging.DEBUG)
+    logging.getLogger().setLevel(logging.DEBUG)
+    application = Application("MatheChamp")
 
-  ft.app(target=application.main, view=ft.WEB_BROWSER)
+    # ft.app(target=application.main)
+    ft.app(target=application.main, view=ft.WEB_BROWSER)
 
 
 if __name__ == "__main__":
