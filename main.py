@@ -16,16 +16,12 @@ class Application:
     self._height = height
 
   async def main(self, page: ft.Page):
-    print("Start of main")
     self._initialize_page(page)
 
     game = Game(60, [QuestionBase(question_factory["any"])])
     game_view = GameView(game)
-    #game_view = GameView(None)
 
-    print("Adding text")
     await self.page.add_async(game_view)
-    print("End of main")
 
   def _initialize_page(self, page: ft.Page):
     self.page = page
@@ -36,7 +32,6 @@ class Application:
 
 
 def main():
-  print("1")
   logging.basicConfig(level=logging.DEBUG)
   logging.getLogger().setLevel(logging.DEBUG)
   application = Application("MatheChamp")
